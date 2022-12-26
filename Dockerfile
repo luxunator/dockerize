@@ -13,9 +13,3 @@ FROM gcr.io/distroless/static
 
 # Move compiled binary from build container to service container 
 COPY --from=build /app/dockerize /dockerize
-
-# Execute birary
-ENTRYPOINT ["/dockerize"]
-
-# Port documentation
-EXPOSE 8080/tcp
