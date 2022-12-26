@@ -15,7 +15,7 @@ FROM gcr.io/distroless/static
 COPY --from=build /app/dockerize /dockerize
 
 # Execute birary
-CMD ["/dockerize"]
+ENTRYPOINT ["/dockerize"]
 
 # Port documentation
 EXPOSE 8080/tcp
