@@ -9,7 +9,7 @@ COPY . .
 RUN CGO_ENABLED=0 go build -v -o /app/dockerize ./cmd/dockerize
 
 # Get the base container for service
-FROM scratch
+FROM gcr.io/distroless/static 
 
 # Move compiled binary from build container to service container 
 COPY --from=build /app/dockerize /dockerize
