@@ -1,7 +1,7 @@
 # Get the build container
 FROM golang:1.19-alpine as build
 
-# Create working diretory and copy code to containter
+# Create working directory and copy code to container
 WORKDIR /app
 COPY . .
 
