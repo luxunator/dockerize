@@ -1,3 +1,4 @@
+name: dockerize
 services:
   api:
     build: .
