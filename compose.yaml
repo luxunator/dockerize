@@ -6,12 +6,21 @@ services:
     entrypoint: /dockerize
     ports:
       - "8080:8080"
-  bind:
+  volume-one:
     build:
       context: .
-      dockerfile: bind.Dockerfile
-    container_name: dockerize-bind
+      dockerfile: volumes.Dockerfile
+    container_name: dockerize-volume-one
     volumes:
-      - type: bind
-        source: "./volumes/bind.txt"
-        target: "/app/volumes/bind.txt"
+      - type: volume
+        source: test-volume
+        target: /app
+  volume-two:
+    build:
+      context: .
+      dockerfile: volumes.Dockerfile
+    container_name: dockerize-volume-two
+    volumes_from:
+      - volume-one
+volumes:
+  test-volume:
